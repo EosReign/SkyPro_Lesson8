@@ -5,7 +5,7 @@ public class main {
 
         FirstTask task = new FirstTask(3234);
         SecondTask task2 = new SecondTask(2014, 1);
-        ThirdTask task3 = new ThirdTask(124);
+        ThirdTask task3 = new ThirdTask(95);
     }
 }
 class FirstTask {
