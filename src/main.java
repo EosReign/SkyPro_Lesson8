@@ -2,10 +2,7 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
-
-        FirstTask task = new FirstTask(3234);
-        SecondTask task2 = new SecondTask(2014, 1);
-        ThirdTask task3 = new ThirdTask(95);
+        new HandlerRequest();
     }
 }
 class FirstTask {
@@ -61,6 +58,55 @@ class ThirdTask {
         }
     }
 }
-
+class HandlerRequest {
+    public HandlerRequest() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Выберите задание домашней работы (Выход: -1)(Варианты ответа: 1, 2, 3): ");
+        int number = sc.nextInt();
+        if (number > 3) {
+            System.out.println("Вы ввели несуществующее задание.");
+            new HandlerRequest();
+        } else if (number == 1) {
+            System.out.println("Вы выбрали первое задание.\nВведите необходимый вам год для обработки на високосность: ");
+            int year = sc.nextInt();
+            new FirstTask(year);
+            new HandlerRequest();
+        } else if (number == 2) {
+            System.out.println("Вы выбрали второе задание.\nВведите год производства вашего смартфона: ");
+            int clientDeviceYear = sc.nextInt();
+            System.out.println("Введите OC вашего смартфона(Android:1 or iOC:0): ");
+            int clientOS = sc.nextInt();
+            new SecondTask(clientDeviceYear, clientOS);
+            new HandlerRequest();
+        } else if (number == 3) {
+            System.out.println("Вы выбрали третье задание.\nВведите дистанцию от ближайшего банка до вашего места доставки в км: ");
+            int distanceToClient = sc.nextInt();
+            new ThirdTask(distanceToClient);
+            new HandlerRequest();
+        } else if (number == -1) {
+            System.out.println("Bye, Bye!");
+            System.out.println("⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣀⣀⣀⣠⣤⣤⣄⣀⣀⣀⡀\n" +
+                    "⠄⠄⠄⠄⠄⠄⠄⠄⠄⣀⠤⠖⠊⠉⠁⠄⠄⠄⠄⠄⠄⠄⠄⠈⠉⠙⠲⢤⡀\n" +
+                    "⠄⠄⠄⠄⠄⠄⠄⡤⠊⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⢦⡀\n" +
+                    "⠄⠄⠄⠄⠄⠄⡜⠄⠄⠄⠄⠄⠄⢀⡀⠄⠄⠄⠄⠄⠄⠄⠄⠄⢢⠄⠄⠄⠄⠄⢳\n" +
+                    "⠄⠄⠄⠄⠄⣸⠁⠄⠄⠄⠄⠄⠄⠄⠱⡀⠄⠄⠄⠄⠄⠄⠄⡀⠈⠄⡀⠄⠄⠄⠈⡇\n" +
+                    "⠄⠄⠄⠄⠄⡏⠄⠄⠄⠄⠄⠄⠄⠄⡰⠁⠄⠄⠄⠄⠄⠄⠄⠘⡆⡜⠁⠄⠄⠄⠄⢧⡀\n" +
+                    "⠄⠄⠄⠄⠄⡇⠄⠄⠄⠄⠄⠄⠄⠸⡀⠄⠄⠄⠄⠄⣀⣤⡂⠄⠇⠱⠄⡀⠄⠄⠄⠄⡇\n" +
+                    "⠄⠄⠄⠄⠄⢇⠄⠄⠄⠄⠄⠄⠄⠄⠈⢄⡀⢠⣟⢭⣥⣤⠽⡆⠄⡶⣊⣉⣲⣤⢀⡞\n" +
+                    "⠄⠄⠄⠄⠄⠘⣆⠄⠄⠄⠄⠄⠄⡀⠄⠐⠂⠘⠄⣈⣙⡡⡴⠄⠄⠙⣄⠙⣛⠜⠘⣆\n" +
+                    "⠄⠄⠄⠄⠄⠄⠈⢦⡀⠄⠄⠄⢸⠁⠄⠄⠄⠄⠄⠄⠄⠊⠄⠄⠄⠄⡸⠛⠄⠄⠄⢸\n" +
+                    "⠄⠄⠄⠄⠄⠄⠄⠄⠈⠓⠦⢄⣘⣄⠄⠄⠄⠄⠄⠄⠄⡠⠄⠄⠄⠄⣇⡀⠄⠄⣠⠎\n" +
+                    "⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣸⠁⠈⡟⠒⠲⣄⠄⠄⡰⠇⠖⢄⠄⠄⡹⡇⢀⠎\n" +
+                    "⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢀⡇⠄⠄⡇⠄⠄⠹⠄⡞⠄⠄⢀⠤⣍⠭⡀⢱⢸\n" +
+                    "⠄⠄⠄⠄⠄⠄⢀⣀⣀⣠⠞⠄⠄⢠⡇⠄⠄⠄⠄⠁⠄⢴⠥⠤⠦⠦⡼⠄⢸\n" +
+                    "⣀⣤⣴⣶⣿⣿⡟⠁⠄⠋⠄⠄⠄⢸⠁⠄⠄⠄⠄⠄⠄⠄⠑⣠⢤⠐⠁⠄⢸\n" +
+                    "⣿⣿⣿⣿⣿⡟⠄⠄⠄⠄⠄⠄⠄⢸⡀⠄⠄⠄⠄⠄⠄⠄⠄⠬⠥⣄⠄⠄⠈⠲⡄\n" +
+                    "⣿⣿⣿⣿⣿⡇⠄⠄⠄⠄⠄⠄⠄⠄⠙⠦⣄⠄⠄⠄⠄⠄⠄⠄⠄⠈⢳⠄⠄⢀⣿⡀\n" +
+                    "⣿⣿⣿⣿⣿⣧⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⠙⠒⠦⠤⢤⣄⣀⣠⠤⢿⣶⣶⣿⣿⣿⣶⣤⡀\n" +
+                    "⣿⣿⣿⣿⣿⣿⣷⣄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢀⡼⠁⠄⠄⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣄\n" +
+                    "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⣤⣤⣀⣀⣀⣀⣀⣀⣀⣤⣤⣤⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+        }
+    }
+}
 
 
